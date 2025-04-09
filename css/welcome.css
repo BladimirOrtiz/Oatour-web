@@ -1,0 +1,245 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+nav {
+  background-color: #a124b7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+nav img {
+  height: 40px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Slider */
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+  height: 100%;
+  width: 100%;
+}
+
+.slides img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 20px;
+  z-index: 2;
+}
+
+.slider-controls button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-controls button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.progress-bar-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.progress-bar {
+  width: 100px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background-color: white;
+  animation: none;
+}
+
+@keyframes fillBar {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Cards */
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card-header {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: #0077cc;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.listen-btn {
+  background-color: #ffffff33;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.listen-btn:hover {
+  background-color: #ffffff55;
+}
+
+.card-body {
+  padding: 0 20px;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.4s ease;
+  background-color: #f2f2f2;
+}
+
+.card.expanded .card-body {
+  padding: 20px;
+}
+
+/* Footer */
+footer {
+  background-color: coral;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* =========================
+   RESPONSIVE MEDIA QUERIES
+   ========================= */
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  .slider {
+    height: 250px;
+  }
+
+  .card-header {
+    font-size: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .card-body {
+    font-size: 14px;
+  }
+
+  .progress-bar {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider {
+    height: 180px;
+  }
+
+  .slider-controls button {
+    padding: 8px 10px;
+    font-size: 18px;
+  }
+
+  .progress-bar {
+    width: 40px;
+  }
+
+  .card-header {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 10px;
+  }
+}
